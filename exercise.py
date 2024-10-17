@@ -53,4 +53,12 @@ def last_element(lst):
         >>> last_element([]) is None
         True
     """
-    
+
+    if lst:
+        return lst.pop()
+    else:
+        return "is None"
+
+print(last_element([1,2,3])) # 3
+print(last_element([1,2,3,4,5,6,7,8,9])) # 9
+print(last_element([])) # is None
