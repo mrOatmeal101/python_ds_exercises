@@ -6,7 +6,7 @@
 #     return a * b 
 # print(product(2,2), ',', product(2,-2)) # 4 , -4
 
-# Exercise 2 
+# Exercise 2 Weekday Name
 # def weekday_name(day_of_week):
 #     """Return name of weekday.    
 #         >>> weekday_name(1) 'Sunday'    
@@ -46,19 +46,33 @@
 # print(weekday_name(1),',', weekday_name(3),',', weekday_name(5),',', weekday_name(9))
 # # Monday , Wednesday , Friday , None
 
-# Exercise 3
-def last_element(lst):
-    """Return last item in list (None if list is empty.)
-        >>> last_element([1, 2, 3]) 3        
-        >>> last_element([]) is None
-        True
+# Exercise 3 Last Element
+# def last_element(lst):
+#     """Return last item in list (None if list is empty.)
+#         >>> last_element([1, 2, 3]) 3        
+#         >>> last_element([]) is None
+#         True
+#     """
+
+#     if lst:
+#         return lst.pop()
+#     else:
+#         return "is None"
+
+# print(last_element([1,2,3])) # 3
+# print(last_element([1,2,3,4,5,6,7,8,9])) # 9
+# print(last_element([])) # is None
+
+# Exercise 4 Number Compare
+def number_compare(a, b):
+    """Report on whether a>b, b>a, or b==a
+    
+        >>> number_compare(1, 1)
+        'Numbers are equal'
+        
+        >>> number_compare(-1, 1)
+        'Second is greater'
+        
+        >>> number_compare(1, -2)
+        'First is greater'
     """
-
-    if lst:
-        return lst.pop()
-    else:
-        return "is None"
-
-print(last_element([1,2,3])) # 3
-print(last_element([1,2,3,4,5,6,7,8,9])) # 9
-print(last_element([])) # is None
