@@ -95,4 +95,12 @@ def reverse_string(phrase):
         >>> reverse_string('sauce')
         'ecuas'
     """
-    
+    # using string slicing 
+    rev_word = phrase[::-1]
+
+    # another way to do the same but first turning the string into a list then converting back into a string with join. 
+    # rev_word = "".join(list(reversed(phrase)))
+    return rev_word
+
+print(reverse_string('awesome')) # emosewa
+print(reverse_string('sauce')) # ecuas
