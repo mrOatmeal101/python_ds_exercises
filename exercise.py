@@ -125,22 +125,22 @@
 # print(single_letter_count('Hello World', 'l'))
 
 # Exercise 7 Multiple Letter Count
-def multiple_letter_count(phrase):
-    """Return dict of {ltr: frequency} from phrase.
-        >>> multiple_letter_count('yay')
-        {'y': 2, 'a': 1}
-        >>> multiple_letter_count('Yay')
-        {'Y': 1, 'a': 1, 'y': 1}
-    """
-    new_dic = {}
+# def multiple_letter_count(phrase):
+#     """Return dict of {ltr: frequency} from phrase.
+#         >>> multiple_letter_count('yay')
+#         {'y': 2, 'a': 1}
+#         >>> multiple_letter_count('Yay')
+#         {'Y': 1, 'a': 1, 'y': 1}
+#     """
+#     new_dic = {}
     
-    for letter in phrase:
-        if letter not in new_dic:
-            new_dic[letter] = phrase.count(letter)          
+#     for letter in phrase:
+#         if letter not in new_dic:
+#             new_dic[letter] = phrase.count(letter)          
                 
-    return new_dic
+#     return new_dic
 
 
-print(multiple_letter_count('yayyyyy'))
-print(multiple_letter_count('Yaaay'))
-print(multiple_letter_count('hello world'))
+# print(multiple_letter_count('yayyyyy'))
+# print(multiple_letter_count('Yaaay'))
+# print(multiple_letter_count('hello world'))
