@@ -186,8 +186,6 @@ def list_manipulation(lst, command, location, value=None):
 
     if 'add' not in command and 'remove' not in command:
             return 'None'
-            # if location != 'end':
-            #     return 'None'
 
     if 'end' not in location and 'beginning' not in location:
          return 'None'   
