@@ -64,25 +64,35 @@
 # print(last_element([])) # is None
 
 # Exercise 4 Number Compare
-def number_compare(a, b):
-    """Report on whether a>b, b>a, or b==a
+# def number_compare(a, b):
+#     """Report on whether a>b, b>a, or b==a
     
-        >>> number_compare(1, 1)
-        'Numbers are equal'
+#         >>> number_compare(1, 1)
+#         'Numbers are equal'
         
-        >>> number_compare(-1, 1)
-        'Second is greater'
+#         >>> number_compare(-1, 1)
+#         'Second is greater'
         
-        >>> number_compare(1, -2)
-        'First is greater'
+#         >>> number_compare(1, -2)
+#         'First is greater'
+#     """
+#     if a == b: # if variable 'a' has the same value as variable 'b' and outputs boolean True, do the following:
+#         return "Numbers are equal"
+#     if a < b: # if variable 'a' value is less than the value for variable 'b' and outputs boolean True, do the following:
+#         return "Second is greater"
+#     if a > b: # if variable 'a' value is greater than the value for variable 'b' and outputs boolean True, do the following:
+#         return "First is greater"
+    
+# print(number_compare(1,1)) # Numbers are equal
+# print(number_compare(-1,1)) # Second is greater
+# print(number_compare(1,-2)) # First is greater
+
+# Exercise 5 Reverse String
+def reverse_string(phrase):
+    """Reverse string,
+        >>> reverse_string('awesome')
+        'emosewa'
+        >>> reverse_string('sauce')
+        'ecuas'
     """
-    if a == b: # if variable 'a' has the same value as variable 'b' and outputs boolean True, do the following:
-        return "Numbers are equal"
-    if a < b: # if variable 'a' value is less than the value for variable 'b' and outputs boolean True, do the following:
-        return "Second is greater"
-    if a > b: # if variable 'a' value is greater than the value for variable 'b' and outputs boolean True, do the following:
-        return "First is greater"
     
-print(number_compare(1,1)) # Numbers are equal
-print(number_compare(-1,1)) # Second is greater
-print(number_compare(1,-2)) # First is greater
