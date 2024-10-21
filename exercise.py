@@ -203,47 +203,65 @@
 # print(list_manipulation(lst, 'add', 'dunno')) # None
 
 # Exercise 9 Is Palindrome
-def is_palindrome(phrase):
-    """Is phrase a palindrome?
-    Return True/False if phrase is a palindrome (same read backwards and
-    forwards).
-        >>> is_palindrome('tacocat')
-        True
-        >>> is_palindrome('noon')
-        True
-        >>> is_palindrome('robert')
-        False
+# def is_palindrome(phrase):
+#     """Is phrase a palindrome?
+#     Return True/False if phrase is a palindrome (same read backwards and
+#     forwards).
+#         >>> is_palindrome('tacocat')
+#         True
+#         >>> is_palindrome('noon')
+#         True
+#         >>> is_palindrome('robert')
+#         False
 
-    Should ignore capitalization/spaces when deciding:
-        >>> is_palindrome('taco cat')
-        True
-        >>> is_palindrome('Noon')
-        True
-    """
-    list_word = [] # making empty list to be able to use  the list and reverse method on the string input so that i can make 
-    # a copy of the string reversed so that i can compare elements in order with an if statement
-    if " " in phrase: # if 'space string char' == True for the elements in the variable phrase'. At top so it executes first
-        phrase = phrase.replace(" ", "") # replace "space string char" with "empty string"
+#     Should ignore capitalization/spaces when deciding:
+#         >>> is_palindrome('taco cat')
+#         True
+#         >>> is_palindrome('Noon')
+#         True
+#     """
+#     list_word = [] # making empty list to be able to use  the list and reverse method on the string input so that i can make 
+#     # a copy of the string reversed so that i can compare elements in order with an if statement
+#     if " " in phrase: # if 'space string char' == True for the elements in the variable phrase'. At top so it executes first
+#         phrase = phrase.replace(" ", "") # replace "space string char" with "empty string"
     
-    for word in phrase: # making a variable called word which is equal to the individual elements in the variable phrase
-        list_word += word # making the variable list_word = to list_word + word so that every time the loop runs it adds the element to the 
-        # list_word variable. 
+#     for word in phrase: # making a variable called word which is equal to the individual elements in the variable phrase
+#         list_word += word # making the variable list_word = to list_word + word so that every time the loop runs it adds the element to the 
+#         # list_word variable. 
 
-    copy_list = list_word.copy() # making a copy of the list_word variable so that you can use the reverse() method, which is a list method. 
-    copy_list.reverse() # using the list method reverse on the variable copy_list
-    rev_string = "".join(copy_list) # turing the list variable copy_list into a string with the .join string method.
+#     copy_list = list_word.copy() # making a copy of the list_word variable so that you can use the reverse() method, which is a list method. 
+#     copy_list.reverse() # using the list method reverse on the variable copy_list
+#     rev_string = "".join(copy_list) # turing the list variable copy_list into a string with the .join string method.
 
-    if rev_string.lower() != phrase.lower(): # if rev_string with its elements lower cased is not equal to variable phrase with its elements lower cased 
-        # i.e. rev_string != phrase == True
-        return False # then output the Boolean False
-    elif rev_string.lower() == phrase.lower(): # else if rev_string.lower == phrase.lower == True
-        return True # then output the Boolean True. 
+#     if rev_string.lower() != phrase.lower(): # if rev_string with its elements lower cased is not equal to variable phrase with its elements lower cased 
+#         # i.e. rev_string != phrase == True
+#         return False # then output the Boolean False
+#     elif rev_string.lower() == phrase.lower(): # else if rev_string.lower == phrase.lower == True
+#         return True # then output the Boolean True. 
 
 
-print(is_palindrome('tacocat')) # True
-print(is_palindrome('noon')) # True
-print(is_palindrome('robert')) # False
-print(is_palindrome('taco cat')) # True
-print(is_palindrome('Noon')) # True
-print(is_palindrome('wizard')) # False
-print(is_palindrome('a man a plan a canal Panama')) # True
+# print(is_palindrome('tacocat')) # True
+# print(is_palindrome('noon')) # True
+# print(is_palindrome('robert')) # False
+# print(is_palindrome('taco cat')) # True
+# print(is_palindrome('Noon')) # True
+# print(is_palindrome('wizard')) # False
+# print(is_palindrome('a man a plan a canal Panama')) # True
+
+# Exercise 10 Frequency
+def frequency(lst, search_term):
+    """Return frequency of term in lst.
+        >>> frequency([1, 4, 3, 4, 4], 4)
+        3  
+        >>> frequency([1, 4, 3], 7)
+        0
+    """
+    count = 0
+    for i in lst:
+        if i == search_term:
+            count += 1
+    return count
+
+print(frequency([1, 4, 3, 4, 4], 4)) # 3
+print(frequency([1, 4, 3], 7)) # 0
+print(frequency([1, 4, 3, 3, 5, 3, 6, 7, 8, 3, 3, 3, 3], 3)) # 7
