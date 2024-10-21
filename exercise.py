@@ -146,58 +146,104 @@
 # print(multiple_letter_count('hello world'))
 
 # Exercise 8 List Manipulation
-def list_manipulation(lst, command, location, value=None):
-    """Mutate lst to add/remove from beginning or end.
+# def list_manipulation(lst, command, location, value=None):
+#     """Mutate lst to add/remove from beginning or end.
 
-    - lst: list of values
-    - command: command, either "remove" or "add"
-    - location: location to remove/add, either "beginning" or "end"
-    - value: when adding, value to add
+#     - lst: list of values
+#     - command: command, either "remove" or "add"
+#     - location: location to remove/add, either "beginning" or "end"
+#     - value: when adding, value to add
 
-    remove: remove item at beginning or end, and return item removed
-        >>> lst = [1, 2, 3]
-        >>> list_manipulation(lst, 'remove', 'end') 3
-        >>> list_manipulation(lst, 'remove', 'beginning') 1
-        >>> lst [2]
+#     remove: remove item at beginning or end, and return item removed
+#         >>> lst = [1, 2, 3]
+#         >>> list_manipulation(lst, 'remove', 'end') 3
+#         >>> list_manipulation(lst, 'remove', 'beginning') 1
+#         >>> lst [2]
 
-    add: add item at beginning/end, and return list
-        >>> lst = [1, 2, 3]
-        >>> list_manipulation(lst, 'add', 'beginning', 20) [20, 1, 2, 3]
-        >>> list_manipulation(lst, 'add', 'end', 30) [20, 1, 2, 3, 30]
-        >>> lst [20, 1, 2, 3, 30]
+#     add: add item at beginning/end, and return list
+#         >>> lst = [1, 2, 3]
+#         >>> list_manipulation(lst, 'add', 'beginning', 20) [20, 1, 2, 3]
+#         >>> list_manipulation(lst, 'add', 'end', 30) [20, 1, 2, 3, 30]
+#         >>> lst [20, 1, 2, 3, 30]
 
-    Invalid commands or locations should return None:
-        >>> list_manipulation(lst, 'foo', 'end') is None True
-        >>> list_manipulation(lst, 'add', 'dunno') is None True
-    """
-    if value == None:
-        if command == 'remove' and location == 'end':
-            lst.pop()              
+#     Invalid commands or locations should return None:
+#         >>> list_manipulation(lst, 'foo', 'end') is None True
+#         >>> list_manipulation(lst, 'add', 'dunno') is None True
+#     """
+#     if value == None:
+#         if command == 'remove' and location == 'end':
+#             lst.pop()              
          
-        if command == 'remove' and location == 'beginning':
-            lst.pop(0)
+#         if command == 'remove' and location == 'beginning':
+#             lst.pop(0)
 
-    if value:
-        if command == 'add' and location == 'beginning':
-            lst.insert(0, value)
+#     if value:
+#         if command == 'add' and location == 'beginning':
+#             lst.insert(0, value)
         
-        if command == 'add' and location == 'end':
-            lst.append(value)
+#         if command == 'add' and location == 'end':
+#             lst.append(value)
 
-    if 'add' not in command and 'remove' not in command:
-            return 'None'
+#     if 'add' not in command and 'remove' not in command:
+#             return 'None'
 
-    if 'end' not in location and 'beginning' not in location:
-         return 'None'   
+#     if 'end' not in location and 'beginning' not in location:
+#          return 'None'   
 
     
-    return lst
+#     return lst
         
 
-lst = [1,2,3]
-# print(list_manipulation(lst, 'remove', 'end')) # [1, 2]
-# print(list_manipulation(lst, 'remove', 'beginning')) # [2]
-print(list_manipulation(lst, 'add', 'beginning', 20)) # [20, 1, 2, 3]
-print(list_manipulation(lst, 'add', 'end', 30)) # [20, 1, 2, 3, 30]
-print(list_manipulation(lst, 'foo', 'end')) # None
-print(list_manipulation(lst, 'add', 'dunno')) # None
+# lst = [1,2,3]
+# # print(list_manipulation(lst, 'remove', 'end')) # [1, 2]
+# # print(list_manipulation(lst, 'remove', 'beginning')) # [2]
+# print(list_manipulation(lst, 'add', 'beginning', 20)) # [20, 1, 2, 3]
+# print(list_manipulation(lst, 'add', 'end', 30)) # [20, 1, 2, 3, 30]
+# print(list_manipulation(lst, 'foo', 'end')) # None
+# print(list_manipulation(lst, 'add', 'dunno')) # None
+
+# Exercise 9 Is Palindrome
+def is_palindrome(phrase):
+    """Is phrase a palindrome?
+    Return True/False if phrase is a palindrome (same read backwards and
+    forwards).
+        >>> is_palindrome('tacocat')
+        True
+        >>> is_palindrome('noon')
+        True
+        >>> is_palindrome('robert')
+        False
+
+    Should ignore capitalization/spaces when deciding:
+        >>> is_palindrome('taco cat')
+        True
+        >>> is_palindrome('Noon')
+        True
+    """
+    list_word = [] # making empty list to be able to use  the list and reverse method on the string input so that i can make 
+    # a copy of the string reversed so that i can compare elements in order with an if statement
+    if " " in phrase: # if 'space string char' == True for the elements in the variable phrase'. At top so it executes first
+        phrase = phrase.replace(" ", "") # replace "space string char" with "empty string"
+    
+    for word in phrase: # making a variable called word which is equal to the individual elements in the variable phrase
+        list_word += word # making the variable list_word = to list_word + word so that every time the loop runs it adds the element to the 
+        # list_word variable. 
+
+    copy_list = list_word.copy() # making a copy of the list_word variable so that you can use the reverse() method, which is a list method. 
+    copy_list.reverse() # using the list method reverse on the variable copy_list
+    rev_string = "".join(copy_list) # turing the list variable copy_list into a string with the .join string method.
+
+    if rev_string.lower() != phrase.lower(): # if rev_string with its elements lower cased is not equal to variable phrase with its elements lower cased 
+        # i.e. rev_string != phrase == True
+        return False # then output the Boolean False
+    elif rev_string.lower() == phrase.lower(): # else if rev_string.lower == phrase.lower == True
+        return True # then output the Boolean True. 
+
+
+print(is_palindrome('tacocat')) # True
+print(is_palindrome('noon')) # True
+print(is_palindrome('robert')) # False
+print(is_palindrome('taco cat')) # True
+print(is_palindrome('Noon')) # True
+print(is_palindrome('wizard')) # False
+print(is_palindrome('a man a plan a canal Panama')) # True
