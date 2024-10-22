@@ -372,35 +372,35 @@
 # print(compact([0, 1, 2, '', [], False, (), None, 'All done'])) # [1, 2, 'All done']
 
 # Exercise 15 Intersection
-def intersection(l1, l2):
-    """Return intersection of two lists as a new list::
-        >>> intersection([1, 2, 3], [2, 3, 4])
-        [2, 3]  
-        >>> intersection([1, 2, 3], [1, 2, 3, 4])
-        [1, 2, 3]  
-        >>> intersection([1, 2, 3], [3, 4])
-        [3]
-        >>> intersection([1, 2, 3], [4, 5, 6])
-        []
-    """
-    new_set1 = set(l1)
-    new_set2 = set(l2)
-    common_set = new_set1 & new_set2
-    final_output = list(common_set)
+# def intersection(l1, l2):
+#     """Return intersection of two lists as a new list::
+#         >>> intersection([1, 2, 3], [2, 3, 4])
+#         [2, 3]  
+#         >>> intersection([1, 2, 3], [1, 2, 3, 4])
+#         [1, 2, 3]  
+#         >>> intersection([1, 2, 3], [3, 4])
+#         [3]
+#         >>> intersection([1, 2, 3], [4, 5, 6])
+#         []
+#     """
+#     new_set1 = set(l1)
+#     new_set2 = set(l2)
+#     common_set = new_set1 & new_set2
+#     final_output = list(common_set)
 
-    # if you set final_output = [] you can loop over common_set and get same result
-    # for i in common_set:
-    #     final_output = list(common_set)
+#     # if you set final_output = [] you can loop over common_set and get same result
+#     # for i in common_set:
+#     #     final_output = list(common_set)
 
-    # return final_output
+#     # return final_output
 
-    # can also do if you want to make even shorter
-    common_set = set(l1) & set(l2)
-    final_output = list(common_set)
-    return final_output    
+#     # can also do if you want to make even shorter
+#     common_set = set(l1) & set(l2)
+#     final_output = list(common_set)
+#     return final_output    
 
-print(intersection([1, 2, 3], [2, 3, 4])) # [2, 3]
-print(intersection([1, 2, 3], [1, 2, 3, 4])) # [1, 2, 3]
-print(intersection([1, 2, 3], [3, 4])) # [3]
-print(intersection([1, 2, 3], [4, 5, 6])) # []
-print(intersection([1, 2, 3, 6], [4, 5, 6, 1])) # [1, 6]
+# print(intersection([1, 2, 3], [2, 3, 4])) # [2, 3]
+# print(intersection([1, 2, 3], [1, 2, 3, 4])) # [1, 2, 3]
+# print(intersection([1, 2, 3], [3, 4])) # [3]
+# print(intersection([1, 2, 3], [4, 5, 6])) # []
+# print(intersection([1, 2, 3, 6], [4, 5, 6, 1])) # [1, 6]
