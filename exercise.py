@@ -299,29 +299,29 @@
 # print(flip_case('FrejJjya', 'j')) # FreJjJya
 
 # Exercise 12 Multiply Even Numbers
-def multiply_even_numbers(nums):
-    """Multiply the even numbers.
-        >>> multiply_even_numbers([2, 3, 4, 5, 6])
-        48   
-        >>> multiply_even_numbers([3, 4, 5])
-        4      
-    If there are no even numbers, return 1.
-        >>> multiply_even_numbers([1, 3, 5])
-        1
-    """
-    even_list = 1
+# def multiply_even_numbers(nums):
+#     """Multiply the even numbers.
+#         >>> multiply_even_numbers([2, 3, 4, 5, 6])
+#         48   
+#         >>> multiply_even_numbers([3, 4, 5])
+#         4      
+#     If there are no even numbers, return 1.
+#         >>> multiply_even_numbers([1, 3, 5])
+#         1
+#     """
+#     even_list = 1
 
-    for num in nums:
-        if num % 2 == 0:
-            even_list = even_list * num
-        if num % 2 != 0:
-            num = 1          
+#     for num in nums:
+#         if num % 2 == 0:
+#             even_list = even_list * num
+#         if num % 2 != 0:
+#             num = 1          
 
-    return even_list
+#     return even_list
 
-print(multiply_even_numbers([2, 3, 4, 5, 6])) # 48
-print(multiply_even_numbers([2, 3, 4, 5, 6, 2, 2])) # 192
-print(multiply_even_numbers([3, 4, 5])) # 4
-print(multiply_even_numbers([1, 3, 5])) # 1
-print(multiply_even_numbers([3, 5])) # 1
-print(multiply_even_numbers([3, 5, 7, 9, 11, 13])) # 1
+# print(multiply_even_numbers([2, 3, 4, 5, 6])) # 48
+# print(multiply_even_numbers([2, 3, 4, 5, 6, 2, 2])) # 192
+# print(multiply_even_numbers([3, 4, 5])) # 4
+# print(multiply_even_numbers([1, 3, 5])) # 1
+# print(multiply_even_numbers([3, 5])) # 1
+# print(multiply_even_numbers([3, 5, 7, 9, 11, 13])) # 1
