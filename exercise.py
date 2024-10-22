@@ -249,19 +249,51 @@
 # print(is_palindrome('a man a plan a canal Panama')) # True
 
 # Exercise 10 Frequency
-def frequency(lst, search_term):
-    """Return frequency of term in lst.
-        >>> frequency([1, 4, 3, 4, 4], 4)
-        3  
-        >>> frequency([1, 4, 3], 7)
-        0
-    """
-    count = 0
-    for i in lst:
-        if i == search_term:
-            count += 1
-    return count
+# def frequency(lst, search_term):
+#     """Return frequency of term in lst.
+#         >>> frequency([1, 4, 3, 4, 4], 4)
+#         3  
+#         >>> frequency([1, 4, 3], 7)
+#         0
+#     """
+#     count = 0
+#     for i in lst:
+#         if i == search_term:
+#             count += 1
+#     return count
 
-print(frequency([1, 4, 3, 4, 4], 4)) # 3
-print(frequency([1, 4, 3], 7)) # 0
-print(frequency([1, 4, 3, 3, 5, 3, 6, 7, 8, 3, 3, 3, 3], 3)) # 7
+# print(frequency([1, 4, 3, 4, 4], 4)) # 3
+# print(frequency([1, 4, 3], 7)) # 0
+# print(frequency([1, 4, 3, 3, 5, 3, 6, 7, 8, 3, 3, 3, 3], 3)) # 7
+
+# Exercise 11 Flip Case
+def flip_case(phrase, to_swap):
+    """Flip [to_swap] case each time it appears in phrase.
+        >>> flip_case('Aaaahhh', 'a')
+        'aAAAhhh'
+        >>> flip_case('Aaaahhh', 'A')
+        'aAAAhhh'
+        >>> flip_case('Aaaahhh', 'h')
+        'AaaaHHH'
+
+    """
+    flipped_list = []
+
+    for i in phrase:
+        if i != to_swap: # if i does not equal to_swap == True
+            if i.lower() == to_swap: # if i.lower() is equal to_swap == True
+                flipped_list.append(i.swapcase()) # swap the case of i and then append it to the variable flipped_list
+            if i.upper() == to_swap: # if i.upper() is equal to_swap == True
+                flipped_list.append(i.swapcase()) # swap the case of i and then append it to the variable flipped_list
+            if i.upper() != to_swap and i.lower() != to_swap: # if i.upper() is not equal to_swap == True and i.lower() is not equal to_swap == True
+                flipped_list.append(i) # swap the case of i and then append it to the variable flipped_list
+
+        if i == to_swap: # if the variable i is equal to variable to_swap == True
+            flipped_list.append(i.swapcase()) # swap the case of i and then append it to the variable flipped_list
+            
+    return "".join(flipped_list) # return the list as a string using the .join method. 
+
+print(flip_case('Aaaahhh', 'a')) # aAAAhhh
+print(flip_case('Aaaahhh', 'A')) # aAAAhhh
+print(flip_case('Aaaahhh', 'h')) # AaaaHHH
+print(flip_case('FrejJjya', 'j')) # FreJjJya
