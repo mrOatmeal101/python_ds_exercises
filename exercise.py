@@ -267,33 +267,33 @@
 # print(frequency([1, 4, 3, 3, 5, 3, 6, 7, 8, 3, 3, 3, 3], 3)) # 7
 
 # Exercise 11 Flip Case
-def flip_case(phrase, to_swap):
-    """Flip [to_swap] case each time it appears in phrase.
-        >>> flip_case('Aaaahhh', 'a')
-        'aAAAhhh'
-        >>> flip_case('Aaaahhh', 'A')
-        'aAAAhhh'
-        >>> flip_case('Aaaahhh', 'h')
-        'AaaaHHH'
+# def flip_case(phrase, to_swap):
+#     """Flip [to_swap] case each time it appears in phrase.
+#         >>> flip_case('Aaaahhh', 'a')
+#         'aAAAhhh'
+#         >>> flip_case('Aaaahhh', 'A')
+#         'aAAAhhh'
+#         >>> flip_case('Aaaahhh', 'h')
+#         'AaaaHHH'
 
-    """
-    flipped_list = []
+#     """
+#     flipped_list = []
 
-    for i in phrase:
-        if i != to_swap: # if i does not equal to_swap == True
-            if i.lower() == to_swap: # if i.lower() is equal to_swap == True
-                flipped_list.append(i.swapcase()) # swap the case of i and then append it to the variable flipped_list
-            if i.upper() == to_swap: # if i.upper() is equal to_swap == True
-                flipped_list.append(i.swapcase()) # swap the case of i and then append it to the variable flipped_list
-            if i.upper() != to_swap and i.lower() != to_swap: # if i.upper() is not equal to_swap == True and i.lower() is not equal to_swap == True
-                flipped_list.append(i) # swap the case of i and then append it to the variable flipped_list
+#     for i in phrase:
+#         if i != to_swap: # if i does not equal to_swap == True
+#             if i.lower() == to_swap: # if i.lower() is equal to_swap == True
+#                 flipped_list.append(i.swapcase()) # swap the case of i and then append it to the variable flipped_list
+#             if i.upper() == to_swap: # if i.upper() is equal to_swap == True
+#                 flipped_list.append(i.swapcase()) # swap the case of i and then append it to the variable flipped_list
+#             if i.upper() != to_swap and i.lower() != to_swap: # if i.upper() is not equal to_swap == True and i.lower() is not equal to_swap == True
+#                 flipped_list.append(i) # swap the case of i and then append it to the variable flipped_list
 
-        if i == to_swap: # if the variable i is equal to variable to_swap == True
-            flipped_list.append(i.swapcase()) # swap the case of i and then append it to the variable flipped_list
+#         if i == to_swap: # if the variable i is equal to variable to_swap == True
+#             flipped_list.append(i.swapcase()) # swap the case of i and then append it to the variable flipped_list
             
-    return "".join(flipped_list) # return the list as a string using the .join method. 
+#     return "".join(flipped_list) # return the list as a string using the .join method. 
 
-print(flip_case('Aaaahhh', 'a')) # aAAAhhh
-print(flip_case('Aaaahhh', 'A')) # aAAAhhh
-print(flip_case('Aaaahhh', 'h')) # AaaaHHH
-print(flip_case('FrejJjya', 'j')) # FreJjJya
+# print(flip_case('Aaaahhh', 'a')) # aAAAhhh
+# print(flip_case('Aaaahhh', 'A')) # aAAAhhh
+# print(flip_case('Aaaahhh', 'h')) # AaaaHHH
+# print(flip_case('FrejJjya', 'j')) # FreJjJya
