@@ -327,25 +327,25 @@
 # print(multiply_even_numbers([3, 5, 7, 9, 11, 13])) # 1
 
 # Exercise 13 Capitalize
-def capitalize(phrase):
-    """Capitalize first letter of first word of phrase.
-        >>> capitalize('python')
-        'Python'
-        >>> capitalize('only first word')
-        'Only first word'
-    """
-    cap_first_letter = []
+# def capitalize(phrase):
+#     """Capitalize first letter of first word of phrase.
+#         >>> capitalize('python')
+#         'Python'
+#         >>> capitalize('only first word')
+#         'Only first word'
+#     """
+#     cap_first_letter = []
 
-    for letter in phrase:
-        cap_first_letter.append(letter)
+#     for letter in phrase:
+#         cap_first_letter.append(letter)
 
-    return ''.join(cap_first_letter).capitalize()
+#     return ''.join(cap_first_letter).capitalize()
 
-    # or can use 
-    # return phrase.capitalize()
+#     # or can use 
+#     # return phrase.capitalize()
 
-    # or can use
-    # return phrase[:1].upper() + phrase[1:]
+#     # or can use
+#     # return phrase[:1].upper() + phrase[1:]
 
-print(capitalize('python')) # Python
-print(capitalize('only first word')) # Only first word
+# print(capitalize('python')) # Python
+# print(capitalize('only first word')) # Only first word
