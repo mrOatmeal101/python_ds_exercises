@@ -349,3 +349,24 @@
 
 # print(capitalize('python')) # Python
 # print(capitalize('only first word')) # Only first word
+
+# Exercise 14 Compact
+def compact(lst):
+    """Return a copy of lst with non-true elements removed.
+        >>> compact([0, 1, 2, '', [], False, (), None, 'All done'])
+        [1, 2, 'All done']
+    """
+    output = []
+
+    for item in lst:
+        if item:
+            output.append(item)
+        else:
+            continue
+
+    return output
+
+    # or can do this way
+    # return [val for val in lst if val]
+
+print(compact([0, 1, 2, '', [], False, (), None, 'All done'])) # [1, 2, 'All done']
