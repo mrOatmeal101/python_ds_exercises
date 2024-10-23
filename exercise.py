@@ -406,46 +406,80 @@
 # print(intersection([1, 2, 3, 6], [4, 5, 6, 1])) # [1, 6]
 
 # Exercise 16 Partition
-def partition(lst, fn):
-    """Partition lst by predicate. 
-     - lst: list of items
-     - fn: function that returns True or False 
-     Returns new list: [a, b], where `a` are items that passed fn test,
-     and `b` are items that failed fn test.
-        >>> def is_even(num):
-        ...     return num % 2 == 0    
-        >>> def is_string(el):
-        ...     return isinstance(el, str)     
-        >>> partition([1, 2, 3, 4], is_even)
-        [[2, 4], [1, 3]]    
-        >>> partition(["hi", None, 6, "bye"], is_string)
-        [['hi', 'bye'], [None, 6]]
-    """ 
-    return fn(lst)        
+# def partition(lst, fn):
+#     """Partition lst by predicate. 
+#      - lst: list of items
+#      - fn: function that returns True or False 
+#      Returns new list: [a, b], where `a` are items that passed fn test,
+#      and `b` are items that failed fn test.
+#         >>> def is_even(num):
+#         ...     return num % 2 == 0    
+#         >>> def is_string(el):
+#         ...     return isinstance(el, str)     
+#         >>> partition([1, 2, 3, 4], is_even)
+#         [[2, 4], [1, 3]]    
+#         >>> partition(["hi", None, 6, "bye"], is_string)
+#         [['hi', 'bye'], [None, 6]]
+#     """ 
+#     return fn(lst)        
 
-def is_even(val):
-    even = []
-    odd = [] 
+# def is_even(val):
+#     even = []
+#     odd = [] 
 
-    for items in val:
-        if items % 2 == 0:
-            even.append(items)
-        else:
-            odd.append(items)
+#     for items in val:
+#         if items % 2 == 0:
+#             even.append(items)
+#         else:
+#             odd.append(items)
 
-    return [even, odd]
+#     return [even, odd]
 
-def is_string(arg):
-    strings = []
-    not_strings = []
+# def is_string(arg):
+#     strings = []
+#     not_strings = []
 
-    for items in arg:
-        if isinstance(items, str):
-            strings.append(items)
-        else:
-            not_strings.append(items)
+#     for items in arg:
+#         if isinstance(items, str):
+#             strings.append(items)
+#         else:
+#             not_strings.append(items)
 
-    return [strings, not_strings]
+#     return [strings, not_strings]
 
-print(partition([1, 2, 3, 4], is_even)) # [[2, 4], [1, 3]]
-print(partition(["hi", None, 6, "bye"], is_string)) # [['hi', 'bye'], [None, 6]]
+# print(partition([1, 2, 3, 4], is_even)) # [[2, 4], [1, 3]]
+# print(partition(["hi", None, 6, "bye"], is_string)) # [['hi', 'bye'], [None, 6]]
+
+# Exercise 17 Mode
+def mode(nums):
+    """Return most-common number in list.
+    For this function, there will always be a single-most-common value;
+    you do not need to worry about handling cases where more than one item
+    occurs the same number of times.
+        >>> mode([1, 2, 1])
+        1
+        >>> mode([2, 2, 3, 3, 2])
+        2
+    """
+    counts = {} # empty dic to store key value pairs from for loop
+
+    for num in nums: # for loop to loop over nums. 
+        #have counts keys = to the [num] = and have the values equal to the number of times num appears in nums
+        counts[num] = nums.count(num)
+
+    max_count = 0 # making empty variable to store values from for loop below.
+    most_common = None # making empty variable to store keys from the loop below
+    
+    for key, value in counts.items():
+        # seting the variables key and value to the key:value pairs by using .items()
+        # Using .items() allows us to retrieve both the key and value in each iteration of the loop.    
+        if value > max_count: # Inside the loop, check if the current value is greater than max_count which is set to 0 on first loop
+            max_count = value # sets max_count to the the value if it was bigger. Need this so that max_count will get updated.
+            most_common = key # then this is set to the key if the value was bigger than max count.
+
+    return most_common        
+
+print(mode([1, 2, 1])) # 1
+print(mode([2, 2, 3, 3, 2])) # 2
+print(mode([2, 2, 3, 3, 2, 3, 3, 3, 3])) # 3
+print(mode([7, 9, 7, 9, 7])) # 7
