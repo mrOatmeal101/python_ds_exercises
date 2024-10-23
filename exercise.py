@@ -451,35 +451,58 @@
 # print(partition(["hi", None, 6, "bye"], is_string)) # [['hi', 'bye'], [None, 6]]
 
 # Exercise 17 Mode
-def mode(nums):
-    """Return most-common number in list.
-    For this function, there will always be a single-most-common value;
-    you do not need to worry about handling cases where more than one item
-    occurs the same number of times.
-        >>> mode([1, 2, 1])
-        1
-        >>> mode([2, 2, 3, 3, 2])
-        2
-    """
-    counts = {} # empty dic to store key value pairs from for loop
+# def mode(nums):
+#     """Return most-common number in list.
+#     For this function, there will always be a single-most-common value;
+#     you do not need to worry about handling cases where more than one item
+#     occurs the same number of times.
+#         >>> mode([1, 2, 1])
+#         1
+#         >>> mode([2, 2, 3, 3, 2])
+#         2
+#     """
+#     counts = {} # empty dic to store key value pairs from for loop
 
-    for num in nums: # for loop to loop over nums. 
-        #have counts keys = to the [num] = and have the values equal to the number of times num appears in nums
-        counts[num] = nums.count(num)
+#     for num in nums: # for loop to loop over nums. 
+#         #have counts keys = to the [num] = and have the values equal to the number of times num appears in nums
+#         counts[num] = nums.count(num)
 
-    max_count = 0 # making empty variable to store values from for loop below.
-    most_common = None # making empty variable to store keys from the loop below
+#     max_count = 0 # making empty variable to store values from for loop below.
+#     most_common = None # making empty variable to store keys from the loop below
     
-    for key, value in counts.items():
-        # seting the variables key and value to the key:value pairs by using .items()
-        # Using .items() allows us to retrieve both the key and value in each iteration of the loop.    
-        if value > max_count: # Inside the loop, check if the current value is greater than max_count which is set to 0 on first loop
-            max_count = value # sets max_count to the the value if it was bigger. Need this so that max_count will get updated.
-            most_common = key # then this is set to the key if the value was bigger than max count.
+#     for key, value in counts.items():
+#         # seting the variables key and value to the key:value pairs by using .items()
+#         # Using .items() allows us to retrieve both the key and value in each iteration of the loop.    
+#         if value > max_count: # Inside the loop, check if the current value is greater than max_count which is set to 0 on first loop
+#             max_count = value # sets max_count to the the value if it was bigger. Need this so that max_count will get updated.
+#             most_common = key # then this is set to the key if the value was bigger than max count.
 
-    return most_common        
+#     return most_common        
 
-print(mode([1, 2, 1])) # 1
-print(mode([2, 2, 3, 3, 2])) # 2
-print(mode([2, 2, 3, 3, 2, 3, 3, 3, 3])) # 3
-print(mode([7, 9, 7, 9, 7])) # 7
+# print(mode([1, 2, 1])) # 1
+# print(mode([2, 2, 3, 3, 2])) # 2
+# print(mode([2, 2, 3, 3, 2, 3, 3, 3, 3])) # 3
+# print(mode([7, 9, 7, 9, 7])) # 7
+
+# Exercise 18 Calculate
+def calculate(operation, a, b, make_int=False, message='The result is'):
+    """Perform operation on a + b, ()possibly truncating) & returning w/msg.
+    - operation: 'add', 'subtract', 'multiply', or 'divide'
+    - a and b: values to operate on
+    - make_int: (optional, defaults to False) if True, truncates to integer
+    - message: (optional) message to use (if not provided, use 'The result is')
+
+    Performs math operation (truncating if make_int), then returns as
+    "[message] [result]"
+        >>> calculate('add', 2.5, 4)
+        'The result is 6.5'
+        >>> calculate('subtract', 4, 1.5, make_int=True)
+        'The result is 2'
+        >>> calculate('multiply', 1.5, 2)
+        'The result is 3.0'
+        >>> calculate('divide', 10, 4, message='I got')
+        'I got 2.5'
+    If a valid operation isn't provided, return None.
+        >>> calculate('foo', 2, 3)
+        
+    """
