@@ -485,68 +485,88 @@
 # print(mode([7, 9, 7, 9, 7])) # 7
 
 # Exercise 18 Calculate
-def calculate(operation, a, b, make_int=False, message='The result is'):
-    """Perform operation on a + b, ()possibly truncating) & returning w/msg.
-    - operation: 'add', 'subtract', 'multiply', or 'divide'
-    - a and b: values to operate on
-    - make_int: (optional, defaults to False) if True, truncates to integer
-    - message: (optional) message to use (if not provided, use 'The result is')
+# def calculate(operation, a, b, make_int=False, message='The result is'):
+#     """Perform operation on a + b, ()possibly truncating) & returning w/msg.
+#     - operation: 'add', 'subtract', 'multiply', or 'divide'
+#     - a and b: values to operate on
+#     - make_int: (optional, defaults to False) if True, truncates to integer
+#     - message: (optional) message to use (if not provided, use 'The result is')
 
-    Performs math operation (truncating if make_int), then returns as
-    "[message] [result]"
-        >>> calculate('add', 2.5, 4)
-        'The result is 6.5'
-        >>> calculate('subtract', 4, 1.5, make_int=True)
-        'The result is 2'
-        >>> calculate('multiply', 1.5, 2)
-        'The result is 3.0'
-        >>> calculate('divide', 10, 4, message='I got')
-        'I got 2.5'
-    If a valid operation isn't provided, return None.
-        >>> calculate('foo', 2, 3)
+#     Performs math operation (truncating if make_int), then returns as
+#     "[message] [result]"
+#         >>> calculate('add', 2.5, 4)
+#         'The result is 6.5'
+#         >>> calculate('subtract', 4, 1.5, make_int=True)
+#         'The result is 2'
+#         >>> calculate('multiply', 1.5, 2)
+#         'The result is 3.0'
+#         >>> calculate('divide', 10, 4, message='I got')
+#         'I got 2.5'
+#     If a valid operation isn't provided, return None.
+#         >>> calculate('foo', 2, 3)
         
-    """
-    def add(a,b):
-        total = a + b
-        if make_int == True:
-            return int(total)
-        else:
-            return total
+#     """
+#     def add(a,b):
+#         total = a + b
+#         if make_int == True:
+#             return int(total)
+#         else:
+#             return total
     
-    def subtract(a,b):
-        total = a - b
-        if make_int == True:
-            return int(total)
-        else:
-            return total
+#     def subtract(a,b):
+#         total = a - b
+#         if make_int == True:
+#             return int(total)
+#         else:
+#             return total
         
-    def multiply(a,b):
-        total = a * b
-        if make_int == True:
-            return int(total)
-        else:
-            return total
+#     def multiply(a,b):
+#         total = a * b
+#         if make_int == True:
+#             return int(total)
+#         else:
+#             return total
     
-    def divide(a,b):
-        total = a / b
-        if make_int == True:
-            return int(total)
-        else:
-            return total
+#     def divide(a,b):
+#         total = a / b
+#         if make_int == True:
+#             return int(total)
+#         else:
+#             return total
     
-    if operation == 'add':
-        return f'{message}, {add(a,b)}'
-    if operation == 'subtract':
-        return f'{message}, {subtract(a,b)}'
-    if operation == 'multiply':
-        return f'{message}, {multiply(a,b)}'
-    if operation == 'divide':
-        return f'{message}, {divide(a,b)}'
-    else:
-        return None
+#     if operation == 'add':
+#         return f'{message}, {add(a,b)}'
+#     if operation == 'subtract':
+#         return f'{message}, {subtract(a,b)}'
+#     if operation == 'multiply':
+#         return f'{message}, {multiply(a,b)}'
+#     if operation == 'divide':
+#         return f'{message}, {divide(a,b)}'
+#     else:
+#         return None
      
-print(calculate('add', 2.5, 4, message = 'the total is')) # the total is, 6.5
-print(calculate('subtract', 4, 1.5, make_int=True)) # The result is, 2
-print(calculate('multiply', 1.5, 2)) # The result is, 3.0
-print(calculate('divide', 10, 4, message='I got')) # I got, 2.5
-print(calculate('foo', 2, 3)) # None
+# print(calculate('add', 2.5, 4, message = 'the total is')) # the total is, 6.5
+# print(calculate('subtract', 4, 1.5, make_int=True)) # The result is, 2
+# print(calculate('multiply', 1.5, 2)) # The result is, 3.0
+# print(calculate('divide', 10, 4, message='I got')) # I got, 2.5
+# print(calculate('foo', 2, 3)) # None
+
+# Exercise 19 Friend Date
+def friend_date(a, b):
+    """Given two friends, do they have any hobbies in common?
+
+    - a: friend #1, a tuple of (name, age, list-of-hobbies)
+    - b: same, for friend #2
+
+    Returns True if they have any hobbies in common, False is not.
+
+        >>> elmo = ('Elmo', 5, ['hugging', 'being nice'])
+        >>> sauron = ('Sauron', 5000, ['killing hobbits', 'chess'])
+        >>> gandalf = ('Gandalf', 10000, ['waving wands', 'chess'])
+
+        >>> friend_date(elmo, sauron)
+        False
+
+        >>> friend_date(sauron, gandalf)
+        True
+    """
