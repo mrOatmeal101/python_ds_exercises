@@ -606,40 +606,40 @@
 # print(triple_and_filter([1, 2, 16])) # [48]
 
 # Exercise 21 extract_full_names
-def extract_full_names(people):
-    """Return list of names, extracting from first+last keys in people dicts.
+# def extract_full_names(people):
+#     """Return list of names, extracting from first+last keys in people dicts.
 
-    - people: list of dictionaries, each with 'first' and 'last' keys for
-              first and last names
+#     - people: list of dictionaries, each with 'first' and 'last' keys for
+#               first and last names
 
-    Returns list of space-separated first and last names.
+#     Returns list of space-separated first and last names.
 
-        >>> names = [
-        ...     {'first': 'Ada', 'last': 'Lovelace'},
-        ...     {'first': 'Grace', 'last': 'Hopper'},
-        ... ]
+#         >>> names = [
+#         ...     {'first': 'Ada', 'last': 'Lovelace'},
+#         ...     {'first': 'Grace', 'last': 'Hopper'},
+#         ... ]
 
-        >>> extract_full_names(names)
-        ['Ada Lovelace', 'Grace Hopper']
-    """
-    sep_name = [] # variable to store the seperated names from the nested dictionary
+#         >>> extract_full_names(names)
+#         ['Ada Lovelace', 'Grace Hopper']
+#     """
+#     sep_name = [] # variable to store the seperated names from the nested dictionary
 
-    for individual in people: # looping over people to access the nested dictionaries
-        for keys, values in individual.items(): # looping over the dics to get the keys (first,last) and values(ada,lovelace)
-            sep_name.append(values) # appending just the values to sep_name
+#     for individual in people: # looping over people to access the nested dictionaries
+#         for keys, values in individual.items(): # looping over the dics to get the keys (first,last) and values(ada,lovelace)
+#             sep_name.append(values) # appending just the values to sep_name
 
-    combined_names = [] # variable to store the combined names.
+#     combined_names = [] # variable to store the combined names.
 
-    for i in range(0, len(sep_name), 2): # for i which is the indexes in the list sep_name in loop over the length of the list. 
-        combined_name = sep_name[i] + ' ' + sep_name[i + 1] # concating the indexs of i and i+1
-        combined_names.append(combined_name) # appending combined_name to combined_names
+#     for i in range(0, len(sep_name), 2): # for i which is the indexes in the list sep_name in loop over the length of the list. 
+#         combined_name = sep_name[i] + ' ' + sep_name[i + 1] # concating the indexs of i and i+1
+#         combined_names.append(combined_name) # appending combined_name to combined_names
         
-    return combined_names
+#     return combined_names
 
-names = [
-     {'first': 'Ada', 'last': 'Lovelace'},
-     {'first': 'Grace', 'last': 'Hopper'},
-     {'first': 'mr.', 'last': 'rooster'},
-     {'first': 'mrs.', 'last': 'chicken'},
- ]
-print(extract_full_names(names)) # ['Ada Lovelace', 'Grace Hopper', 'mr. rooster', 'mrs. chicken']
+# names = [
+#      {'first': 'Ada', 'last': 'Lovelace'},
+#      {'first': 'Grace', 'last': 'Hopper'},
+#      {'first': 'mr.', 'last': 'rooster'},
+#      {'first': 'mrs.', 'last': 'chicken'},
+#  ]
+# print(extract_full_names(names)) # ['Ada Lovelace', 'Grace Hopper', 'mr. rooster', 'mrs. chicken']
