@@ -667,21 +667,24 @@
 # print(sum_floats([1.1, 2, 3.3])) # 4.4
 
 # Exercise 23 list_check
-def list_check(lst):
-    """Are all items in lst a list?
-        >>> list_check([[1], [2, 3]])
-        True
-        >>> list_check([[1], "nope"])
-        False
-    """
+# def list_check(lst):
+#     """Are all items in lst a list?
+#         >>> list_check([[1], [2, 3]])
+#         True
+#         >>> list_check([[1], "nope"])
+#         False
+#     """
 
-    for item in lst: # iterating over each element in lst and seting it equal to item
-        if not isinstance(item, list): # if the element is not a list return false and break code
-            return False
-    return True # if the loop completes without finding returning false then the function returns true. 
+#     for item in lst: # iterating over each element in lst and seting it equal to item
+#         if not isinstance(item, list): # if the element is not a list return false and break code
+#             return False
+#     return True # if the loop completes without finding returning false then the function returns true. 
 
-    # Or can use list comprehension to condense.
-    # return all(isinstance(item, list) for item in lst)      
+#     # Or can use list comprehension to condense.
+#     # return all(isinstance(item, list) for item in lst)      
 
-print(list_check([[1], [2, 3]])) # True
-print(list_check([[1], "nope"]))  # False
+# print(list_check([[1], [2, 3]])) # True
+# print(list_check([[1], "nope"]))  # False
+
+
+    
