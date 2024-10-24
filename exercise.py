@@ -506,3 +506,47 @@ def calculate(operation, a, b, make_int=False, message='The result is'):
         >>> calculate('foo', 2, 3)
         
     """
+    def add(a,b):
+        total = a + b
+        if make_int == True:
+            return int(total)
+        else:
+            return total
+    
+    def subtract(a,b):
+        total = a - b
+        if make_int == True:
+            return int(total)
+        else:
+            return total
+        
+    def multiply(a,b):
+        total = a * b
+        if make_int == True:
+            return int(total)
+        else:
+            return total
+    
+    def divide(a,b):
+        total = a / b
+        if make_int == True:
+            return int(total)
+        else:
+            return total
+    
+    if operation == 'add':
+        return f'{message}, {add(a,b)}'
+    if operation == 'subtract':
+        return f'{message}, {subtract(a,b)}'
+    if operation == 'multiply':
+        return f'{message}, {multiply(a,b)}'
+    if operation == 'divide':
+        return f'{message}, {divide(a,b)}'
+    else:
+        return None
+     
+print(calculate('add', 2.5, 4, message = 'the total is')) # the total is, 6.5
+print(calculate('subtract', 4, 1.5, make_int=True)) # The result is, 2
+print(calculate('multiply', 1.5, 2)) # The result is, 3.0
+print(calculate('divide', 10, 4, message='I got')) # I got, 2.5
+print(calculate('foo', 2, 3)) # None
