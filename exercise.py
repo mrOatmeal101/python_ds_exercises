@@ -645,23 +645,23 @@
 # print(extract_full_names(names)) # ['Ada Lovelace', 'Grace Hopper', 'mr. rooster', 'mrs. chicken']
 
 # Exercise 22 sum_floats
-def sum_floats(nums):
-    """Return sum of floating point numbers in nums.
-        >>> sum_floats([1.5, 2.4, 'awesome', [], 1])
-        3.9   
-        >>> sum_floats([1, 2, 3])
-        0
-    """
-    float_sum = 0
+# def sum_floats(nums):
+#     """Return sum of floating point numbers in nums.
+#         >>> sum_floats([1.5, 2.4, 'awesome', [], 1])
+#         3.9   
+#         >>> sum_floats([1, 2, 3])
+#         0
+#     """
+#     float_sum = 0
 
-    for item in nums:
-        if isinstance(item, float):
-            float_sum += item
-        else:
-            continue
+#     for item in nums:
+#         if isinstance(item, float):
+#             float_sum += item
+#         else:
+#             continue
 
-    return float_sum
+#     return float_sum
 
-print(sum_floats([1.5, 2.4, 'awesome', [], 1])) # 3.9
-print(sum_floats([1, 2, 3])) # 0
-print(sum_floats([1.1, 2, 3.3])) # 4.4
+# print(sum_floats([1.5, 2.4, 'awesome', [], 1])) # 3.9
+# print(sum_floats([1, 2, 3])) # 0
+# print(sum_floats([1.1, 2, 3.3])) # 4.4
