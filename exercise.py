@@ -762,20 +762,40 @@
 # print(vowel_count('HOW ARE YOU? i am great!')) # {'o': 2, 'a': 3, 'e': 2, 'u': 1, 'i': 1}
 
 # Exercise 27 titleize
-def titleize(phrase):
-    """Return phrase in title case (each word capitalized).
-        >>> titleize('this is awesome')
-        'This Is Awesome'
-        >>> titleize('oNLy cAPITALIZe fIRSt')
-        'Only Capitalize First'
-    """
-    split = phrase.rsplit(" ") # ['this', 'is', 'awesome'] ['oNLy', 'cAPITALIZe', 'fIRSt']
-    cap_word = []
+# def titleize(phrase):
+#     """Return phrase in title case (each word capitalized).
+#         >>> titleize('this is awesome')
+#         'This Is Awesome'
+#         >>> titleize('oNLy cAPITALIZe fIRSt')
+#         'Only Capitalize First'
+#     """
+#     split = phrase.rsplit(" ") # ['this', 'is', 'awesome'] ['oNLy', 'cAPITALIZe', 'fIRSt']
+#     cap_word = []
     
-    for word in split:
-        cap_word.append(word.capitalize())
+#     for word in split:
+#         cap_word.append(word.capitalize())
 
-    return ' '.join(cap_word)
+#     return ' '.join(cap_word)
 
-print(titleize('this is awesome')) # This Is Awesome
-print(titleize('oNLy cAPITALIZe fIRSt')) # Only Capitalize First
+# print(titleize('this is awesome')) # This Is Awesome
+# print(titleize('oNLy cAPITALIZe fIRSt')) # Only Capitalize First
+
+# Exercise 28 find_factors
+def find_factors(num):
+    """Find factors of num, in increasing order.
+    >>> find_factors(10)
+    [1, 2, 5, 10]
+    >>> find_factors(11)
+    [1, 11]
+    >>> find_factors(111)
+    [1, 3, 37, 111]
+    >>> find_factors(321421)
+    [1, 293, 1097, 321421]
+    """
+    factors = [i for i in range(1, num + 1) if num % i == 0]
+    return factors
+
+print(find_factors(10)) # [1, 2, 5, 10]
+print(find_factors(11)) # [1, 11]
+print(find_factors(111)) # [1, 3, 37, 111]
+print(find_factors(321421)) # [1, 293, 1097, 321421]
