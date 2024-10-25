@@ -781,21 +781,78 @@
 # print(titleize('oNLy cAPITALIZe fIRSt')) # Only Capitalize First
 
 # Exercise 28 find_factors
-def find_factors(num):
-    """Find factors of num, in increasing order.
-    >>> find_factors(10)
-    [1, 2, 5, 10]
-    >>> find_factors(11)
-    [1, 11]
-    >>> find_factors(111)
-    [1, 3, 37, 111]
-    >>> find_factors(321421)
-    [1, 293, 1097, 321421]
-    """
-    factors = [i for i in range(1, num + 1) if num % i == 0]
-    return factors
+# def find_factors(num):
+#     """Find factors of num, in increasing order.
+#     >>> find_factors(10)
+#     [1, 2, 5, 10]
+#     >>> find_factors(11)
+#     [1, 11]
+#     >>> find_factors(111)
+#     [1, 3, 37, 111]
+#     >>> find_factors(321421)
+#     [1, 293, 1097, 321421]
+#     """
+#     factors = [i for i in range(1, num + 1) if num % i == 0]
+#     return factors
 
-print(find_factors(10)) # [1, 2, 5, 10]
-print(find_factors(11)) # [1, 11]
-print(find_factors(111)) # [1, 3, 37, 111]
-print(find_factors(321421)) # [1, 293, 1097, 321421]
+# print(find_factors(10)) # [1, 2, 5, 10]
+# print(find_factors(11)) # [1, 11]
+# print(find_factors(111)) # [1, 3, 37, 111]
+# print(find_factors(321421)) # [1, 293, 1097, 321421]
+
+# Exercise 29 includes
+def includes(collection, sought, start = None):
+    """Is sought in collection, starting at index start?
+    Return True/False if sought is in the given collection:
+    - lists/strings/sets/tuples: returns True/False if sought present
+    - dictionaries: return True/False if *value* of sought in dictionary
+    If string/list/tuple and `start` is provided, starts searching only at that
+    index. This `start` is ignored for sets/dictionaries, since they aren't
+    ordered.
+        >>> includes([1, 2, 3], 1) # True
+        >>> includes([1, 2, 3], 1, 2) # False
+        >>> includes("hello", "o") # True
+        >>> includes(('Elmo', 5, 'red'), 'red', 1) # True
+        >>> includes({1, 2, 3}, 1) # True
+        >>> includes({1, 2, 3}, 1, 3)  # "start" ignored for sets! # True
+        >>> includes({"apple": "red", "berry": "blue"}, "blue") # True
+    """
+    if isinstance(collection, (list, tuple)):
+        if start is None:
+            start = 0      
+            if sought in collection[start:len(collection)]:
+                return f'{collection} is {True}'
+        if start != None:        
+            if sought in collection[start:len(collection)]:
+                return f'{collection} is {True}'
+        return f'{collection} is {False}'
+
+    if isinstance(collection, dict):
+        for i in collection.values():
+            if i == sought:
+                return f'{collection} is {True}'
+        return f'{collection} is {False}'
+    
+    if isinstance(collection, str):
+        if sought in collection:
+            return f'{collection} is {True}'
+        return f'{collection} is {False}'
+
+    if isinstance(collection, set):
+        start = 0
+        if sought in collection:
+            return f'{collection} is {True}'
+        return f'{collection} is {False}'
+
+print(includes([1, 2, 3], 1)) # True
+print(includes([1, 2, 3], 1, 2)) # False
+print(includes([1, 2, 3, 4, 5, 1], 1, 2)) # True
+print(includes([1, 2, 3, 4, 5, 6], 1, 2)) # False
+print(includes("hello", "o")) # True
+print(includes(('Elmo', 5, 'red'), 'red', 1)) # True
+print(includes({1, 2, 3}, 1)) # True
+print(includes({1, 2, 3}, 1, 3)) # True # 
+print(includes({"apple": "red", "berry": "blue"}, "blue")) # True
+print(includes({"apple": "red", "berry": "blue"}, "green")) # False
+print(includes({"apple": "red", "berry": "blue"}, "red")) # True
+print(includes({"apple": "red", "berry": "blue", 'blackberry': 'purple', "peach": "yellow-orange"}, "yellow-orange")) # True
