@@ -878,7 +878,6 @@ def repeat(phrase, num):
             repeats.append(item)
         return f"'{''.join(repeats) * num}'"
     return f"('{phrase}','{num}') is {None} {True}"
-    
 
 print(repeat('*', 3)) # '***'
 print(repeat('abc', 2)) # 'abcabc'
