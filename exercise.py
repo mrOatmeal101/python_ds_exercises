@@ -801,58 +801,87 @@
 # print(find_factors(321421)) # [1, 293, 1097, 321421]
 
 # Exercise 29 includes
-def includes(collection, sought, start = None):
-    """Is sought in collection, starting at index start?
-    Return True/False if sought is in the given collection:
-    - lists/strings/sets/tuples: returns True/False if sought present
-    - dictionaries: return True/False if *value* of sought in dictionary
-    If string/list/tuple and `start` is provided, starts searching only at that
-    index. This `start` is ignored for sets/dictionaries, since they aren't
-    ordered.
-        >>> includes([1, 2, 3], 1) # True
-        >>> includes([1, 2, 3], 1, 2) # False
-        >>> includes("hello", "o") # True
-        >>> includes(('Elmo', 5, 'red'), 'red', 1) # True
-        >>> includes({1, 2, 3}, 1) # True
-        >>> includes({1, 2, 3}, 1, 3)  # "start" ignored for sets! # True
-        >>> includes({"apple": "red", "berry": "blue"}, "blue") # True
-    """
-    if isinstance(collection, (list, tuple)):
-        if start is None:
-            start = 0      
-            if sought in collection[start:len(collection)]:
-                return f'{collection} is {True}'
-        if start != None:        
-            if sought in collection[start:len(collection)]:
-                return f'{collection} is {True}'
-        return f'{collection} is {False}'
+# def includes(collection, sought, start = None):
+#     """Is sought in collection, starting at index start?
+#     Return True/False if sought is in the given collection:
+#     - lists/strings/sets/tuples: returns True/False if sought present
+#     - dictionaries: return True/False if *value* of sought in dictionary
+#     If string/list/tuple and `start` is provided, starts searching only at that
+#     index. This `start` is ignored for sets/dictionaries, since they aren't
+#     ordered.
+#         >>> includes([1, 2, 3], 1) # True
+#         >>> includes([1, 2, 3], 1, 2) # False
+#         >>> includes("hello", "o") # True
+#         >>> includes(('Elmo', 5, 'red'), 'red', 1) # True
+#         >>> includes({1, 2, 3}, 1) # True
+#         >>> includes({1, 2, 3}, 1, 3)  # "start" ignored for sets! # True
+#         >>> includes({"apple": "red", "berry": "blue"}, "blue") # True
+#     """
+#     if isinstance(collection, (list, tuple)):
+#         if start is None:
+#             start = 0      
+#             if sought in collection[start:len(collection)]:
+#                 return f'{collection} is {True}'
+#         if start != None:        
+#             if sought in collection[start:len(collection)]:
+#                 return f'{collection} is {True}'
+#         return f'{collection} is {False}'
 
-    if isinstance(collection, dict):
-        for i in collection.values():
-            if i == sought:
-                return f'{collection} is {True}'
-        return f'{collection} is {False}'
+#     if isinstance(collection, dict):
+#         for i in collection.values():
+#             if i == sought:
+#                 return f'{collection} is {True}'
+#         return f'{collection} is {False}'
     
-    if isinstance(collection, str):
-        if sought in collection:
-            return f'{collection} is {True}'
-        return f'{collection} is {False}'
+#     if isinstance(collection, str):
+#         if sought in collection:
+#             return f'{collection} is {True}'
+#         return f'{collection} is {False}'
 
-    if isinstance(collection, set):
-        start = 0
-        if sought in collection:
-            return f'{collection} is {True}'
-        return f'{collection} is {False}'
+#     if isinstance(collection, set):
+#         start = 0
+#         if sought in collection:
+#             return f'{collection} is {True}'
+#         return f'{collection} is {False}'
 
-print(includes([1, 2, 3], 1)) # True
-print(includes([1, 2, 3], 1, 2)) # False
-print(includes([1, 2, 3, 4, 5, 1], 1, 2)) # True
-print(includes([1, 2, 3, 4, 5, 6], 1, 2)) # False
-print(includes("hello", "o")) # True
-print(includes(('Elmo', 5, 'red'), 'red', 1)) # True
-print(includes({1, 2, 3}, 1)) # True
-print(includes({1, 2, 3}, 1, 3)) # True # 
-print(includes({"apple": "red", "berry": "blue"}, "blue")) # True
-print(includes({"apple": "red", "berry": "blue"}, "green")) # False
-print(includes({"apple": "red", "berry": "blue"}, "red")) # True
-print(includes({"apple": "red", "berry": "blue", 'blackberry': 'purple', "peach": "yellow-orange"}, "yellow-orange")) # True
+# print(includes([1, 2, 3], 1)) # True
+# print(includes([1, 2, 3], 1, 2)) # False
+# print(includes([1, 2, 3, 4, 5, 1], 1, 2)) # True
+# print(includes([1, 2, 3, 4, 5, 6], 1, 2)) # False
+# print(includes("hello", "o")) # True
+# print(includes(('Elmo', 5, 'red'), 'red', 1)) # True
+# print(includes({1, 2, 3}, 1)) # True
+# print(includes({1, 2, 3}, 1, 3)) # True # 
+# print(includes({"apple": "red", "berry": "blue"}, "blue")) # True
+# print(includes({"apple": "red", "berry": "blue"}, "green")) # False
+# print(includes({"apple": "red", "berry": "blue"}, "red")) # True
+# print(includes({"apple": "red", "berry": "blue", 'blackberry': 'purple', "peach": "yellow-orange"}, "yellow-orange")) # True
+
+# Exercise 30 repeat
+def repeat(phrase, num):
+    """Return phrase, repeated num times.
+        >>> repeat('*', 3)
+        '***'
+        >>> repeat('abc', 2)
+        'abcabc'
+        >>> repeat('abc', 0)
+        ''
+    Ignore illegal values of num and return None:
+        >>> repeat('abc', -1) is None
+        True
+        >>> repeat('abc', 'nope') is None
+        True
+    """
+    if isinstance(num, int) and num >= 0:
+        repeats = []
+        for item in phrase:
+            repeats.append(item)
+        return f"'{''.join(repeats) * num}'"
+    return f"('{phrase}','{num}') is {None} {True}"
+    
+
+print(repeat('*', 3)) # '***'
+print(repeat('abc', 2)) # 'abcabc'
+print(repeat('abc', 0)) # ''
+print(repeat('abc', -1)) # ('abc','-1') is None True
+print(repeat('abc', 'nope')) # ('abc','nope') is None True
