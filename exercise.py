@@ -743,3 +743,20 @@
 # print(sum_pairs([4, 2, 10, 5, 1], 6)) # (4, 2)
 # print(sum_pairs([5, 1, 4, 8, 3, 2], 7)) # (5, 2)
 # print(sum_pairs([11, 20, 4, 2, 1, 5], 100)) # ()
+
+# Exercise 26 vowel_count
+def vowel_count(phrase):
+    """Return frequency map of vowels, case-insensitive.
+        >>> vowel_count('rithm school')
+        {'i': 1, 'o': 2}
+        >>> vowel_count('HOW ARE YOU? i am great!') 
+        {'o': 2, 'a': 3, 'e': 2, 'u': 1, 'i': 1}
+    """   
+
+    vowels = 'a','e','i','o','u'
+
+    vowel_count = {letter:phrase.lower().count(letter) for letter in phrase.lower() if letter in vowels}
+    return vowel_count
+
+print(vowel_count('rithm school')) # {'i': 1, 'o': 2}
+print(vowel_count('HOW ARE YOU? i am great!')) # {'o': 2, 'a': 3, 'e': 2, 'u': 1, 'i': 1}
