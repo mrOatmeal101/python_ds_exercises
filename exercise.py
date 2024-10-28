@@ -886,34 +886,54 @@
 # print(repeat('abc', 'nope')) # ('abc','nope') is None True
 
 # Exercise 31 truncate
-def truncate(phrase, n):
-    """Return truncated-at-n-chars version of phrase.
-    If the phrase is longer than, or the same size as, n make sure it ends with '...' and is no
-    longer than n.  
-        >>> truncate("Hello World", 6)
-        'Hel...'       
-        >>> truncate("Problem solving is the best!", 10)
-        'Problem...'
-        >>> truncate("Yo", 100)
-        'Yo'
+# def truncate(phrase, n):
+#     """Return truncated-at-n-chars version of phrase.
+#     If the phrase is longer than, or the same size as, n make sure it ends with '...' and is no
+#     longer than n.  
+#         >>> truncate("Hello World", 6)
+#         'Hel...'       
+#         >>> truncate("Problem solving is the best!", 10)
+#         'Problem...'
+#         >>> truncate("Yo", 100)
+#         'Yo'
 
-    The smallest legal value of n is 3; if less, return a message:
-        >>> truncate('Cool', 1)
-        'Truncation must be at least 3 characters.'
-        >>> truncate("Woah", 4)
-        'W...'
-        >>> truncate("Woah", 3)
-        '...'
-    """
-    if n < 3:
-        return 'Truncation must be at least 3 characters.'
-    if len(phrase) < n:
-        return phrase
-    return phrase[:n - 3] + "..."
+#     The smallest legal value of n is 3; if less, return a message:
+#         >>> truncate('Cool', 1)
+#         'Truncation must be at least 3 characters.'
+#         >>> truncate("Woah", 4)
+#         'W...'
+#         >>> truncate("Woah", 3)
+#         '...'
+#     """
+#     if n < 3:
+#         return 'Truncation must be at least 3 characters.'
+#     if len(phrase) < n:
+#         return phrase
+#     return phrase[:n - 3] + "..."
 
-print(truncate("Hello World", 6)) # Hel...
-print(truncate("Problem solving is the best!", 10)) # Problem...
-print(truncate("Yo", 100)) # Yo
-print(truncate('Cool', 1)) # Truncation must be at least 3 characters.
-print(truncate("Woah", 4)) # W...
-print(truncate("Woah", 3)) # ...
+# print(truncate("Hello World", 6)) # Hel...
+# print(truncate("Problem solving is the best!", 10)) # Problem...
+# print(truncate("Yo", 100)) # Yo
+# print(truncate('Cool', 1)) # Truncation must be at least 3 characters.
+# print(truncate("Woah", 4)) # W...
+# print(truncate("Woah", 3)) # ...
+
+# Exercise 32 two_list_dictionary
+def two_list_dictionary(keys, values):
+    """Given keys and values, make dictionary of those.
+        >>> two_list_dictionary(['x', 'y', 'z'], [9, 8, 7])
+        {'x': 9, 'y': 8, 'z': 7}
+    If there are fewer values than keys, remaining keys should have value
+    of None:
+        >>> two_list_dictionary(['a', 'b', 'c', 'd'], [1, 2, 3])
+        {'a': 1, 'b': 2, 'c': 3, 'd': None}
+    If there are fewer keys, ignore remaining values:
+        >>> two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4])
+        {'a': 1, 'b': 2, 'c': 3}
+   """
+    combined_list = dict(zip(keys, values))
+    return combined_list
+    
+print(two_list_dictionary(['x', 'y', 'z'], [9, 8, 7])) # {'x': 9, 'y': 8, 'z': 7}
+print(two_list_dictionary(['a', 'b', 'c', 'd'], [1, 2, 3])) # {'a': 1, 'b': 2, 'c': 3}
+print(two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4])) # {'a': 1, 'b': 2, 'c': 3}
