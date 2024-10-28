@@ -1011,28 +1011,62 @@
 #     # you have a runtime worse than O(n)
 
 # Exercise 36 find_the_duplicate
-def find_the_duplicate(nums):
-    """Find duplicate number in nums.
-    Given a list of nums with, at most, one duplicate, return the duplicate.
-    If there is no duplicate, return None
-        >>> find_the_duplicate([1, 2, 1, 4, 3, 12]) # 1
-        >>> find_the_duplicate([6, 1, 9, 5, 3, 4, 9]) # 9
-        >>> find_the_duplicate([2, 1, 3, 4]) is None # True
-    """
+# def find_the_duplicate(nums):
+#     """Find duplicate number in nums.
+#     Given a list of nums with, at most, one duplicate, return the duplicate.
+#     If there is no duplicate, return None
+#         >>> find_the_duplicate([1, 2, 1, 4, 3, 12]) # 1
+#         >>> find_the_duplicate([6, 1, 9, 5, 3, 4, 9]) # 9
+#         >>> find_the_duplicate([2, 1, 3, 4]) is None # True
+#     """
     
-    first_loop_storage = set()
-    duplicates = set()
+#     first_loop_storage = set()
+#     duplicates = set()
 
-    for num in nums:
-        if num in first_loop_storage:
-            duplicates.add(num)
-        else:
-            first_loop_storage.add(num)
+#     for num in nums:
+#         if num in first_loop_storage:
+#             duplicates.add(num)
+#         else:
+#             first_loop_storage.add(num)
 
-    if duplicates:
-        return list(duplicates)
-    return f"{nums} is {None}"  
+#     if duplicates:
+#         return list(duplicates)
+#     return f"{nums} is {None}"  
 
-print(find_the_duplicate([1, 2, 1, 4, 3, 12])) # [1]
-print(find_the_duplicate([6, 1, 9, 5, 3, 4, 9])) # [9]
-print(find_the_duplicate([2, 1, 3, 4])) # [2, 1, 3, 4] is None
+# print(find_the_duplicate([1, 2, 1, 4, 3, 12])) # [1]
+# print(find_the_duplicate([6, 1, 9, 5, 3, 4, 9])) # [9]
+# print(find_the_duplicate([2, 1, 3, 4])) # [2, 1, 3, 4] is None
+
+# Exercise 37 sum_up_diagonals
+def sum_up_diagonals(matrix):
+    """Given a matrix [square list of lists], return sum of diagonals.
+    Sum of TL-to-BR diagonal along with BL-to-TR diagonal:
+        >>> m1 = [
+        ...     [1,   2],
+        ...     [30, 40],
+        ... ]
+        >>> sum_up_diagonals(m1) # 73
+
+        >>> m2 = [
+        ...    [1, 2, 3],
+        ...    [4, 5, 6],
+        ...    [7, 8, 9],
+        ... ]
+        >>> sum_up_diagonals(m2) # 30
+    """
+    n = len(matrix)
+    sum = 0
+
+    for i in range(n):
+        sum += matrix[i][i]
+        sum += matrix[n - 1 - i][i]
+    return sum
+
+m1 = [ [1,   2],
+       [30, 40]]
+print(sum_up_diagonals(m1)) # 73
+
+m2 = [ [1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]]
+print(sum_up_diagonals(m2)) # 30
