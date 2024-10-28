@@ -992,20 +992,47 @@
 # print(same_frequency(12123, 22112)) # False
 
 # Exercise 35 two_oldest_ages
-def two_oldest_ages(ages):
-    """Return two distinct oldest ages as tuple (second-oldest, oldest)..
-        >>> two_oldest_ages([1, 2, 10, 8]) (8, 10)
-        >>> two_oldest_ages([6, 1, 9, 10, 4]) (9, 10)
-    Even if more than one person has the same oldest age, this should return
-    two *distinct* oldest ages:
-        >>> two_oldest_ages([1, 5, 5, 2]) (2, 5)
+# def two_oldest_ages(ages):
+#     """Return two distinct oldest ages as tuple (second-oldest, oldest)..
+#         >>> two_oldest_ages([1, 2, 10, 8]) (8, 10)
+#         >>> two_oldest_ages([6, 1, 9, 10, 4]) (9, 10)
+#     Even if more than one person has the same oldest age, this should return
+#     two *distinct* oldest ages:
+#         >>> two_oldest_ages([1, 5, 5, 2]) (2, 5)
+#     """
+#     list1 = list(sorted(set(ages)))
+#     return tuple(list1[-2:])
+
+# print(two_oldest_ages([1, 2, 10, 8])) # (8, 10)
+# print(two_oldest_ages([6, 1, 9, 10, 4])) # (9, 10)
+# print(two_oldest_ages([1, 5, 5, 2])) # (2, 5)
+
+#     # NOTE: don't worry about an optimized runtime here; it's fine if
+#     # you have a runtime worse than O(n)
+
+# Exercise 36 find_the_duplicate
+def find_the_duplicate(nums):
+    """Find duplicate number in nums.
+    Given a list of nums with, at most, one duplicate, return the duplicate.
+    If there is no duplicate, return None
+        >>> find_the_duplicate([1, 2, 1, 4, 3, 12]) # 1
+        >>> find_the_duplicate([6, 1, 9, 5, 3, 4, 9]) # 9
+        >>> find_the_duplicate([2, 1, 3, 4]) is None # True
     """
-    list1 = list(sorted(set(ages)))
-    return tuple(list1[-2:])
+    
+    first_loop_storage = set()
+    duplicates = set()
 
-print(two_oldest_ages([1, 2, 10, 8])) # (8, 10)
-print(two_oldest_ages([6, 1, 9, 10, 4])) # (9, 10)
-print(two_oldest_ages([1, 5, 5, 2])) # (2, 5)
+    for num in nums:
+        if num in first_loop_storage:
+            duplicates.add(num)
+        else:
+            first_loop_storage.add(num)
 
-    # NOTE: don't worry about an optimized runtime here; it's fine if
-    # you have a runtime worse than O(n)
+    if duplicates:
+        return list(duplicates)
+    return f"{nums} is {None}"  
+
+print(find_the_duplicate([1, 2, 1, 4, 3, 12])) # [1]
+print(find_the_duplicate([6, 1, 9, 5, 3, 4, 9])) # [9]
+print(find_the_duplicate([2, 1, 3, 4])) # [2, 1, 3, 4] is None
