@@ -974,19 +974,38 @@
 # print(sum_range(nums, 1, 99)) # 9
 
 # Exercise 34 same_frequency
-def same_frequency(num1, num2):
-    """Do these nums have same frequencies of digits?
-        >>> same_frequency(551122, 221515) True    
-        >>> same_frequency(321142, 3212215) False    
-        >>> same_frequency(1212, 2211) True
-    """
-    input1 = list(set(str(num1)))
-    input2 = list(set(str(num2)))
-    if input1 != input2:
-        return False
-    return True
+# def same_frequency(num1, num2):
+#     """Do these nums have same frequencies of digits?
+#         >>> same_frequency(551122, 221515) True    
+#         >>> same_frequency(321142, 3212215) False    
+#         >>> same_frequency(1212, 2211) True
+#     """
+#     input1 = list(set(str(num1)))
+#     input2 = list(set(str(num2)))
+#     if input1 != input2:
+#         return False
+#     return True
 
-print(same_frequency(551122, 221515)) # True
-print(same_frequency(321142, 3212215)) # False
-print(same_frequency(1212, 2211)) # True
-print(same_frequency(12123, 22112)) # False
+# print(same_frequency(551122, 221515)) # True
+# print(same_frequency(321142, 3212215)) # False
+# print(same_frequency(1212, 2211)) # True
+# print(same_frequency(12123, 22112)) # False
+
+# Exercise 35 two_oldest_ages
+def two_oldest_ages(ages):
+    """Return two distinct oldest ages as tuple (second-oldest, oldest)..
+        >>> two_oldest_ages([1, 2, 10, 8]) (8, 10)
+        >>> two_oldest_ages([6, 1, 9, 10, 4]) (9, 10)
+    Even if more than one person has the same oldest age, this should return
+    two *distinct* oldest ages:
+        >>> two_oldest_ages([1, 5, 5, 2]) (2, 5)
+    """
+    list1 = list(sorted(set(ages)))
+    return tuple(list1[-2:])
+
+print(two_oldest_ages([1, 2, 10, 8])) # (8, 10)
+print(two_oldest_ages([6, 1, 9, 10, 4])) # (9, 10)
+print(two_oldest_ages([1, 5, 5, 2])) # (2, 5)
+
+    # NOTE: don't worry about an optimized runtime here; it's fine if
+    # you have a runtime worse than O(n)
