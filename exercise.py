@@ -939,36 +939,54 @@
 # print(two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4])) # {'a': 1, 'b': 2, 'c': 3}
 
 # Exercise 33 two_list_dictionary
-def sum_range(nums, start=0, end=None):
-    """Return sum of numbers from start...end.
-    - start: where to start (if not provided, start at list start)
-    - end: where to stop (include this index) (if not provided, go through end)
-        >>> nums = [1, 2, 3, 4]
-        >>> sum_range(nums) 10
-        >>> sum_range(nums, 1) 9
-        >>> sum_range(nums, end=2) 6
-        >>> sum_range(nums, 1, 3) 9
-    If end is after end of list, just go to end of list:
-        >>> sum_range(nums, 1, 99) 9
+# def sum_range(nums, start=0, end=None):
+#     """Return sum of numbers from start...end.
+#     - start: where to start (if not provided, start at list start)
+#     - end: where to stop (include this index) (if not provided, go through end)
+#         >>> nums = [1, 2, 3, 4]
+#         >>> sum_range(nums) 10
+#         >>> sum_range(nums, 1) 9
+#         >>> sum_range(nums, end=2) 6
+#         >>> sum_range(nums, 1, 3) 9
+#     If end is after end of list, just go to end of list:
+#         >>> sum_range(nums, 1, 99) 9
+#     """
+#     if end == None:
+#         end = len(nums)
+#         return sum(nums[start:end])
+
+#     if end < len(nums):
+#         end = end + 1
+#         return sum(nums[start:end])
+
+#     if end == len(nums):
+#         return sum(nums[start:end])
+
+#     if end > len(nums):
+#         return sum(nums[start:end])
+
+# nums = [1, 2, 3, 4]
+# print(sum_range(nums)) # 10
+# print(sum_range(nums, end = 4)) # 10
+# print(sum_range(nums, 1)) # 9
+# print(sum_range(nums, end=2)) # 6
+# print(sum_range(nums, 1, 3)) # 9
+# print(sum_range(nums, 1, 99)) # 9
+
+# Exercise 34 same_frequency
+def same_frequency(num1, num2):
+    """Do these nums have same frequencies of digits?
+        >>> same_frequency(551122, 221515) True    
+        >>> same_frequency(321142, 3212215) False    
+        >>> same_frequency(1212, 2211) True
     """
-    if end == None:
-        end = len(nums)
-        return sum(nums[start:end])
+    input1 = list(set(str(num1)))
+    input2 = list(set(str(num2)))
+    if input1 != input2:
+        return False
+    return True
 
-    if end < len(nums):
-        end = end + 1
-        return sum(nums[start:end])
-
-    if end == len(nums):
-        return sum(nums[start:end])
-
-    if end > len(nums):
-        return sum(nums[start:end])
-
-nums = [1, 2, 3, 4]
-print(sum_range(nums)) # 10
-print(sum_range(nums, end = 4)) # 10
-print(sum_range(nums, 1)) # 9
-print(sum_range(nums, end=2)) # 6
-print(sum_range(nums, 1, 3)) # 9
-print(sum_range(nums, 1, 99)) # 9
+print(same_frequency(551122, 221515)) # True
+print(same_frequency(321142, 3212215)) # False
+print(same_frequency(1212, 2211)) # True
+print(same_frequency(12123, 22112)) # False
