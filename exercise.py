@@ -1038,35 +1038,51 @@
 # print(find_the_duplicate([2, 1, 3, 4])) # [2, 1, 3, 4] is None
 
 # Exercise 37 sum_up_diagonals
-def sum_up_diagonals(matrix):
-    """Given a matrix [square list of lists], return sum of diagonals.
-    Sum of TL-to-BR diagonal along with BL-to-TR diagonal:
-        >>> m1 = [
-        ...     [1,   2],
-        ...     [30, 40],
-        ... ]
-        >>> sum_up_diagonals(m1) # 73
+# def sum_up_diagonals(matrix):
+#     """Given a matrix [square list of lists], return sum of diagonals.
+#     Sum of TL-to-BR diagonal along with BL-to-TR diagonal:
+#         >>> m1 = [
+#         ...     [1,   2],
+#         ...     [30, 40],
+#         ... ]
+#         >>> sum_up_diagonals(m1) # 73
 
-        >>> m2 = [
-        ...    [1, 2, 3],
-        ...    [4, 5, 6],
-        ...    [7, 8, 9],
-        ... ]
-        >>> sum_up_diagonals(m2) # 30
+#         >>> m2 = [
+#         ...    [1, 2, 3],
+#         ...    [4, 5, 6],
+#         ...    [7, 8, 9],
+#         ... ]
+#         >>> sum_up_diagonals(m2) # 30
+#     """
+#     n = len(matrix)
+#     sum = 0
+
+#     for i in range(n):
+#         sum += matrix[i][i]
+#         sum += matrix[n - 1 - i][i]
+#     return sum
+
+# m1 = [ [1,   2],
+#        [30, 40]]
+# print(sum_up_diagonals(m1)) # 73
+
+# m2 = [ [1, 2, 3],
+#        [4, 5, 6],
+#        [7, 8, 9]]
+# print(sum_up_diagonals(m2)) # 30
+
+# Exercise 38 min_max_keys
+def min_max_keys(d):
+    """Return tuple (min-keys, max-keys) in d.
+        >>> min_max_keys({2: 'a', 7: 'b', 1: 'c', 10: 'd', 4: 'e'})
+        (1, 10)
+    Works with any kind of key that can be compared, like strings:
+        >>> min_max_keys({"apple": "red", "cherry": "red", "berry": "blue"})
+        ('apple', 'cherry')
     """
-    n = len(matrix)
-    sum = 0
+    keys = sorted(list(d.keys()))
+    list1 = min(keys), max(keys)
+    return tuple(list1)
 
-    for i in range(n):
-        sum += matrix[i][i]
-        sum += matrix[n - 1 - i][i]
-    return sum
-
-m1 = [ [1,   2],
-       [30, 40]]
-print(sum_up_diagonals(m1)) # 73
-
-m2 = [ [1, 2, 3],
-       [4, 5, 6],
-       [7, 8, 9]]
-print(sum_up_diagonals(m2)) # 30
+print(min_max_keys({2: 'a', 7: 'b', 1: 'c', 10: 'd', 4: 'e'})) # 
+print(min_max_keys({"apple": "red", "cherry": "red", "berry": "blue"})) # 
