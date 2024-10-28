@@ -919,21 +919,56 @@
 # print(truncate("Woah", 3)) # ...
 
 # Exercise 32 two_list_dictionary
-def two_list_dictionary(keys, values):
-    """Given keys and values, make dictionary of those.
-        >>> two_list_dictionary(['x', 'y', 'z'], [9, 8, 7])
-        {'x': 9, 'y': 8, 'z': 7}
-    If there are fewer values than keys, remaining keys should have value
-    of None:
-        >>> two_list_dictionary(['a', 'b', 'c', 'd'], [1, 2, 3])
-        {'a': 1, 'b': 2, 'c': 3, 'd': None}
-    If there are fewer keys, ignore remaining values:
-        >>> two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4])
-        {'a': 1, 'b': 2, 'c': 3}
-   """
-    combined_list = dict(zip(keys, values))
-    return combined_list
+# def two_list_dictionary(keys, values):
+#     """Given keys and values, make dictionary of those.
+#         >>> two_list_dictionary(['x', 'y', 'z'], [9, 8, 7])
+#         {'x': 9, 'y': 8, 'z': 7}
+#     If there are fewer values than keys, remaining keys should have value
+#     of None:
+#         >>> two_list_dictionary(['a', 'b', 'c', 'd'], [1, 2, 3])
+#         {'a': 1, 'b': 2, 'c': 3, 'd': None}
+#     If there are fewer keys, ignore remaining values:
+#         >>> two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4])
+#         {'a': 1, 'b': 2, 'c': 3}
+#    """
+#     combined_list = dict(zip(keys, values))
+#     return combined_list
     
-print(two_list_dictionary(['x', 'y', 'z'], [9, 8, 7])) # {'x': 9, 'y': 8, 'z': 7}
-print(two_list_dictionary(['a', 'b', 'c', 'd'], [1, 2, 3])) # {'a': 1, 'b': 2, 'c': 3}
-print(two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4])) # {'a': 1, 'b': 2, 'c': 3}
+# print(two_list_dictionary(['x', 'y', 'z'], [9, 8, 7])) # {'x': 9, 'y': 8, 'z': 7}
+# print(two_list_dictionary(['a', 'b', 'c', 'd'], [1, 2, 3])) # {'a': 1, 'b': 2, 'c': 3}
+# print(two_list_dictionary(['a', 'b', 'c'], [1, 2, 3, 4])) # {'a': 1, 'b': 2, 'c': 3}
+
+# Exercise 33 two_list_dictionary
+def sum_range(nums, start=0, end=None):
+    """Return sum of numbers from start...end.
+    - start: where to start (if not provided, start at list start)
+    - end: where to stop (include this index) (if not provided, go through end)
+        >>> nums = [1, 2, 3, 4]
+        >>> sum_range(nums) 10
+        >>> sum_range(nums, 1) 9
+        >>> sum_range(nums, end=2) 6
+        >>> sum_range(nums, 1, 3) 9
+    If end is after end of list, just go to end of list:
+        >>> sum_range(nums, 1, 99) 9
+    """
+    if end == None:
+        end = len(nums)
+        return sum(nums[start:end])
+
+    if end < len(nums):
+        end = end + 1
+        return sum(nums[start:end])
+
+    if end == len(nums):
+        return sum(nums[start:end])
+
+    if end > len(nums):
+        return sum(nums[start:end])
+
+nums = [1, 2, 3, 4]
+print(sum_range(nums)) # 10
+print(sum_range(nums, end = 4)) # 10
+print(sum_range(nums, 1)) # 9
+print(sum_range(nums, end=2)) # 6
+print(sum_range(nums, 1, 3)) # 9
+print(sum_range(nums, 1, 99)) # 9
